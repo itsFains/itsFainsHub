@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/assets/itsfain-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>itsFain Community Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for a more modern/gaming feel (optional, works in WebKit browsers) */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1a202c; /* dark-ish background, e.g., gray-800 */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e53e3e; /* red-600 */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #c53030; /* red-700 */
+    }
+
+    @keyframes contentFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-contentFadeIn {
+      animation: contentFadeIn 1s ease-out forwards;
+    }
+
+    /* Allow html, body, and #root to grow with content */
+    html, body, #root {
+      margin: 0;
+      /* height: 100%; removed */
+    }
+    body {
+      font-family: 'Inter', sans-serif; /* Using Inter as a clean, modern font, falls back to Tailwind defaults */
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            orbitron: ['Orbitron', 'sans-serif'], // A more "gaming" style font
+          },
+          colors: {
+            'brand-red': '#FF0000', // A vibrant red
+            'brand-red-dark': '#CC0000',
+            'brand-gray': {
+              DEFAULT: '#1A202C', // gray-800
+              light: '#2D3748', // gray-700
+              dark: '#121212', // Almost black
+            }
+          },
+          animation: {
+            contentFadeIn: 'contentFadeIn 1s ease-out forwards',
+          },
+          keyframes: {
+            contentFadeIn: {
+              from: { opacity: 0, transform: 'translateY(30px)' },
+              to: { opacity: 1, transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-brand-gray-dark text-gray-100 antialiased">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
